@@ -1,0 +1,99 @@
+.section { overflow: hidden; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+
+.text { display: flex; flex-direction: column; gap: 0; }
+
+.headline {
+  margin-bottom: 28px;
+  color: var(--white);
+}
+
+.headline em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-bottom: 36px;
+}
+
+.body p { line-height: 1.75; }
+
+.body em {
+  color: var(--white);
+  font-style: italic;
+}
+
+.signature {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ── Image column ─────────────────────────────── */
+.imageCol {
+  position: relative;
+  height: 600px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.image {
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(20%) contrast(1.05);
+  transition: transform 0.8s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .imageWrap:hover .image { transform: scale(1.02); }
+}
+
+.imageCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  background: linear-gradient(to top, rgba(10,10,10,0.9), transparent);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .imageCol {
+    height: 400px;
+    order: -1;
+  }
+}

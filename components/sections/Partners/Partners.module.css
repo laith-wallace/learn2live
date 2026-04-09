@@ -1,0 +1,144 @@
+.section { overflow: hidden; }
+
+.header {
+  max-width: 620px;
+  margin-bottom: clamp(48px, 6vw, 80px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.headline { color: var(--white); }
+
+/* ── Partner cards ────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 3vw, 32px);
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.partnerCard {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: clamp(24px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color var(--duration-base) var(--ease-out),
+              background   var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .partnerCard:hover {
+    border-color: var(--accent-border);
+    background: var(--surface-3);
+  }
+}
+
+.partnerLogo {
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.5);
+  transition: filter var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .partnerCard:hover .logoImg { filter: grayscale(0%) brightness(1); }
+}
+
+/* Text-only logo for Brixton House */
+.textLogo { align-items: flex-start; }
+
+.textLogoText {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--accent-border);
+  padding-bottom: 4px;
+  transition: color var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .partnerCard:hover .textLogoText {
+    color: var(--white);
+    border-color: var(--accent);
+  }
+}
+
+.partnerName {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+/* ── Press clipping ───────────────────────────── */
+.press {
+  border-top: 1px solid var(--border);
+  padding-top: clamp(40px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pressCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 60px);
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pressImageWrap {
+  position: relative;
+  height: 340px;
+}
+
+.pressImage {
+  object-fit: cover;
+  filter: grayscale(15%);
+}
+
+.pressText {
+  padding: clamp(24px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pressSource {
+  display: inline-block;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  background: var(--accent-dim);
+  padding: 4px 10px;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+.pressHeadline {
+  color: var(--white);
+  line-height: 1.25;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .pressCard { grid-template-columns: 1fr; }
+  .pressImageWrap { height: 240px; }
+}
