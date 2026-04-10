@@ -2,17 +2,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import SectionHeader from '../../components/shared/SectionHeader/SectionHeader';
+import TripleCTA from '../../components/shared/TripleCTA/TripleCTA';
+import styles from './about.module.css';
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://learn2livelegacy.org';
 
 export const metadata = {
   title: 'About Jermaine Wong — Playwright, Director, Founder',
   description:
-    'Jermaine Wong is a playwright, director, and the founder of Learn 2 Live Legacy. Over 15 years delivering theatre-based youth work across South London.',
+    'Jermaine Wong is a theatre-maker, educator and the architect of the Forgiveness Framework. 15+ years delivering theatre-based youth work across South London.',
   alternates: { canonical: '/about' },
   openGraph: {
-    title: 'About Jermaine Wong — Playwright, Director, Founder',
+    title: 'About Jermaine Wong — Learn 2 Live Legacy',
     description:
-      'Playwright, director, and founder of Learn 2 Live Legacy. 15+ years of theatre-based youth work across South London.',
-    url: '/about',
+      'The architect of the Forgiveness Framework. Work built from lived experience, delivered through theatre.',
+    url: `${BASE_URL}/about`,
     type: 'profile',
   },
 };
@@ -21,59 +26,76 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main id="main">
-        <section className="section section--dark" style={{ paddingTop: 'calc(var(--section-pad-y) + 40px)' }}>
+      <main id="main" className={styles.page}>
+        {/* ── Hero + portrait ─────────────────────── */}
+        <section className={`section section--dark ${styles.hero}`}>
           <div className="container">
-            <nav aria-label="Breadcrumb" style={{ marginBottom: 24 }}>
-              <ol style={{ display: 'flex', gap: 8, listStyle: 'none', padding: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                <li><Link href="/" style={{ color: 'var(--accent)' }}>Home</Link></li>
+            <nav aria-label="Breadcrumb">
+              <ol className={styles.breadcrumb}>
+                <li><Link href="/">Home</Link></li>
                 <li aria-hidden="true">/</li>
                 <li aria-current="page">About</li>
               </ol>
             </nav>
 
-            <div className="eyebrow">About the founder</div>
-            <h1 className="display-xl" style={{ maxWidth: 900, marginBottom: 32 }}>
-              Jermaine Wong &mdash; playwright, director, and founder of Learn 2 Live Legacy.
-            </h1>
+            <div className={styles.heroGrid}>
+              <div>
+                <div className="eyebrow">The founder</div>
+                <h1 className={`display-xl ${styles.heroHeadline}`}>
+                  Jermaine Wong — the architect of the{' '}
+                  <em>Forgiveness Framework.</em>
+                </h1>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)', gap: 'clamp(32px, 5vw, 80px)', alignItems: 'start' }}>
-              <div style={{ maxWidth: 720, fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-muted)' }}>
-                <p style={{ marginBottom: 20 }}>
-                  My name is Jermaine Wong. I&apos;m a playwright, director, and the founder of
-                  Learn 2 Live Legacy. I didn&apos;t come to this work from a textbook —
-                  I came to it through loss, through watching people I love carry wounds
-                  that were slowly destroying them, and through my own reckoning with what
-                  it means to keep going when everything has broken.
-                </p>
-                <p style={{ marginBottom: 20 }}>
-                  For over fifteen years I have been delivering theatre-based youth work
-                  into South London schools, colleges, and civic venues. That work became{' '}
-                  <em style={{ color: 'var(--white)' }}>Our Son</em> — a one-hour theatrical
-                  production that puts audiences inside the consequence of unforgiveness —
-                  and later became the{' '}
-                  <Link href="/the-framework" style={{ color: 'var(--accent)' }}>Forgiveness Framework</Link>,
-                  the four-phase structured process that grew out of delivering that story
-                  into real rooms with real young people.
-                </p>
-                <p style={{ marginBottom: 20 }}>
-                  I work with partners who understand that this kind of change does not
-                  happen from a curriculum document. It happens in the space between a
-                  story and a young person — when they feel something recognisable enough
-                  that they are willing to ask a question they would not otherwise ask.
-                </p>
-                <p style={{ marginBottom: 32 }}>
-                  If you are a funder, a commissioner, an educator, or a youth worker who
-                  believes the same, I would be glad to hear from you.
-                </p>
+                {/* DRAFT — JW to approve */}
+                <div className={styles.heroBody}>
+                  <p>
+                    Jermaine Wong is a theatre-maker, educator and the architect
+                    of the Forgiveness Framework. His work sits at the
+                    intersection of culture, youth engagement and civic response.
+                  </p>
+                  <p>
+                    But this work is not theoretical. It is built from lived
+                    experience. Following the loss of his son to serious youth
+                    violence, Jermaine made a decision that now underpins
+                    everything he builds: <em>not to reproduce harm — but to
+                    interrupt it.</em>
+                  </p>
+                  <p>
+                    That decision has been translated into a structured,
+                    scalable model now being developed for borough-level
+                    implementation. The production that anchors it —{' '}
+                    <Link href="/our-son">Our Son</Link> — has been delivered to
+                    audiences across South London for over fifteen years. The
+                    model behind it — the{' '}
+                    <Link href="/the-framework">Forgiveness Framework</Link> —
+                    is what Jermaine now works to scale.
+                  </p>
+                  <p>
+                    If you are a funder, a commissioner, an educator, or a youth
+                    worker who understands that this kind of change does not
+                    happen from a curriculum document, he would be glad to hear
+                    from you.
+                  </p>
+                </div>
 
-                <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-                  <Link href="/#contact" className="btn-primary">Start a conversation</Link>
-                  <Link href="/the-framework" className="btn-ghost">Explore the framework</Link>
+                <div className={styles.signature}>
+                  <span className={styles.signatureName}>Jermaine Wong</span>
+                  <span className={styles.signatureRole}>
+                    Playwright · Director · Founder, Learn 2 Live Legacy
+                  </span>
+                </div>
+
+                <div className={styles.heroActions}>
+                  <Link href="/fund" className="btn-primary">
+                    Fund This Initiative
+                  </Link>
+                  <Link href="/the-framework" className="btn-ghost">
+                    Explore the framework
+                  </Link>
                 </div>
               </div>
 
-              <aside style={{ position: 'relative', aspectRatio: '3 / 4', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)' }}>
+              <aside className={styles.portrait}>
                 <Image
                   src="/thevoice-news-article.jpg"
                   alt="Jermaine Wong, as featured in The Voice newspaper"
@@ -81,10 +103,96 @@ export default function AboutPage() {
                   sizes="(max-width: 900px) 100vw, 400px"
                   style={{ objectFit: 'cover' }}
                 />
+                <div className={styles.portraitCaption}>
+                  <span className="text-xs text-muted">As featured in The Voice</span>
+                </div>
               </aside>
             </div>
           </div>
         </section>
+
+        {/* ── What this work is built on ──────────── */}
+        <section className={`section section--surface ${styles.block}`}>
+          <div className="container">
+            <SectionHeader
+              eyebrow="The work"
+              headline="What Jermaine builds, and why."
+            />
+            <div className={styles.prose}>
+              {/* DRAFT — JW to approve */}
+              <p>
+                The Forgiveness Framework was not designed in a classroom. It
+                was assembled, cohort by cohort, from the rooms Jermaine has
+                actually delivered into — South London schools, pupil referral
+                units, community youth settings, and civic venues. Every part
+                of the framework has been tested on the young people it is
+                built for.
+              </p>
+              <p>
+                The work rests on a simple premise: <em>pain that is not
+                processed becomes pattern.</em> Most of the interventions a
+                young person encounters work on the outside — behaviour, choice,
+                consequence. The inside — what they are carrying, what they
+                have learned to survive with, what they have been taught to
+                expect — gets left alone.
+              </p>
+              <p>
+                What Jermaine builds is a way to change that. Theatre creates
+                the emotional conditions. Structured facilitation turns the
+                experience into voice. Voice becomes craft, and craft becomes
+                public. By the time a young person stands in front of a civic
+                audience with work they have made, the shift has already
+                happened.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Credentials ─────────────────────────── */}
+        <section className={`section section--dark ${styles.block}`}>
+          <div className="container">
+            <SectionHeader
+              eyebrow="Track record"
+              headline="Over fifteen years in the room."
+              subhead="Jermaine's work has been delivered in partnership with schools, civic venues, and youth organisations across South London — and covered by national press."
+            />
+            <div className={styles.credsGrid}>
+              {/* DRAFT — JW to approve / supply specifics */}
+              <div className={styles.cred}>
+                <div className={`text-xs ${styles.credLabel}`}>Delivery</div>
+                <h3 className={styles.credTitle}>15+ years</h3>
+                <p className={styles.credBody}>
+                  Continuous theatre-based youth work delivered across South
+                  London schools, colleges, and civic venues since 2009.
+                </p>
+              </div>
+              <div className={styles.cred}>
+                <div className={`text-xs ${styles.credLabel}`}>Partnerships</div>
+                <h3 className={styles.credTitle}>Kiyan Prince Foundation · Brixton House</h3>
+                <p className={styles.credBody}>
+                  Ongoing programme partnerships with the Kiyan Prince
+                  Foundation and Brixton House, the borough landmark that hosts
+                  Our Son and civic showcase events.
+                </p>
+              </div>
+              <div className={styles.cred}>
+                <div className={`text-xs ${styles.credLabel}`}>Press</div>
+                <h3 className={styles.credTitle}>Featured in The Voice</h3>
+                <p className={styles.credBody}>
+                  National Black British press coverage of the production and
+                  the broader framework — available in the press kit on
+                  request.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <TripleCTA
+          eyebrow="What happens next"
+          headline="Three ways to work with this."
+          intro="Fund a cohort, bring the programme to your borough, or book Jermaine to speak to your team."
+        />
       </main>
       <Footer />
     </>

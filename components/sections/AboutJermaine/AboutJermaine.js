@@ -31,32 +31,29 @@ export default function AboutJermaine() {
 
           {/* Text column */}
           <div className={styles.text}>
-            <div className="eyebrow fade-up">Where this began</div>
+            <div className="eyebrow fade-up">The founder</div>
 
+            {/* DRAFT — JW to approve */}
             <h2 className={`display-lg fade-up ${styles.headline}`}>
-              I built this framework<br />
-              because I <em>needed</em> it.
+              The architect of the<br />
+              <em>Forgiveness Framework.</em>
             </h2>
 
             <div className={`fade-up ${styles.body}`}>
               <p>
-                My name is Jermaine Wong. I'm a playwright, director, and the founder of
-                Learn 2 Live Legacy. I didn't come to this work from a textbook —
-                I came to it through loss, through watching people I love carry wounds
-                that were slowly destroying them, and through my own reckoning with what
-                it means to keep going when everything has broken.
+                Jermaine Wong is a theatre-maker, educator and the architect of the
+                Forgiveness Framework. His work sits at the intersection of culture,
+                youth engagement and civic response.
               </p>
               <p>
-                <em>Our Son</em> — the production that anchors this framework — was born
-                from that place. It's not a lecture about forgiveness. It's a story about
-                what happens when you don't. It puts audiences inside that experience. And
-                it changes the conversation before the conversation even begins.
+                But this work is not theoretical. It is built from lived experience.
+                Following the loss of his son to serious youth violence, Jermaine made a
+                decision that now underpins everything he builds: not to reproduce harm —
+                but to interrupt it.
               </p>
               <p>
-                The Forgiveness Framework is what grew out of decades of delivering that
-                story into schools, community spaces, and civic venues across South London.
-                It's structured. It's evidenced. And it works — because it starts with the
-                human, not the curriculum.
+                That decision has been translated into a structured, scalable model now
+                being developed for borough-level implementation.
               </p>
             </div>
 

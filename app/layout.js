@@ -122,6 +122,13 @@ const jsonLd = {
         'Community arts education',
       ],
       sameAs: [],
+      potentialAction: {
+        '@type': 'DonateAction',
+        name: 'Fund This Initiative',
+        target: `${BASE_URL}/fund`,
+        description:
+          'Fund a structured, repeatable model designed to break cycles of harm — from £5,000 pilot workshops to £100,000+ borough rollouts.',
+      },
     },
     {
       '@type': 'Person',
@@ -175,6 +182,57 @@ const jsonLd = {
       audience: {
         '@type': 'PeopleAudience',
         audienceType: 'Young people and educators',
+      },
+    },
+    {
+      '@type': 'EducationalOccupationalProgram',
+      '@id': `${BASE_URL}/#spoken-word`,
+      name: 'Spoken Word',
+      description:
+        'A structured creative intervention that transforms lived experience into written and performed work, culminating in a public showcase.',
+      url: `${BASE_URL}/programmes/spoken-word`,
+      provider: { '@id': `${BASE_URL}/#organization` },
+      programType: 'Youth arts programme',
+      educationalLevel: 'Secondary and further education',
+      occupationalCategory: 'Youth creative development',
+      audience: {
+        '@type': 'EducationalAudience',
+        educationalRole: 'Young people aged 14–21',
+      },
+    },
+    {
+      '@type': 'EducationalOccupationalProgram',
+      '@id': `${BASE_URL}/#filmmaking`,
+      name: 'Filmmaking',
+      description:
+        'A cinematic pathway where young people develop, write, shoot, and premiere their own short films.',
+      url: `${BASE_URL}/programmes/filmmaking`,
+      provider: { '@id': `${BASE_URL}/#organization` },
+      programType: 'Youth arts programme',
+      educationalLevel: 'Secondary and further education',
+      occupationalCategory: 'Youth creative development',
+      audience: {
+        '@type': 'EducationalAudience',
+        educationalRole: 'Young people aged 14–21',
+      },
+    },
+    {
+      '@type': 'Service',
+      '@id': `${BASE_URL}/#keynote-speaking`,
+      name: 'Keynote Speaking — Jermaine Wong',
+      description:
+        'Keynote speaking engagements on forgiveness, youth resilience, interrupting cycles of harm, and the role of theatre in civic intervention.',
+      url: `${BASE_URL}/keynote`,
+      provider: { '@id': `${BASE_URL}/#jermaine-wong` },
+      serviceType: 'Public speaking',
+      areaServed: {
+        '@type': 'AdministrativeArea',
+        name: 'United Kingdom',
+      },
+      audience: {
+        '@type': 'Audience',
+        audienceType:
+          'Schools, civic events, cultural institutions, professional audiences',
       },
     },
     {

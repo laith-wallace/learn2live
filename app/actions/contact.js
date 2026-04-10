@@ -46,6 +46,8 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_MAX = 120;
 const ORG_MAX = 200;
 const MESSAGE_MAX = 5000;
+const META_MAX = 500;
+const VALID_TOPICS = ['general', 'funding', 'keynote'];
 
 function validate(data) {
   const errors = {};
@@ -55,6 +57,17 @@ function validate(data) {
   const email = (data.email || '').trim().toLowerCase();
   const message = (data.message || '').trim();
   const honeypot = (data.website || '').trim(); // hidden field
+
+  // Topic routing — defaults to general for the homepage contact form.
+  let topic = (data.topic || 'general').trim().toLowerCase();
+  if (!VALID_TOPICS.includes(topic)) topic = 'general';
+
+  // Optional funder/keynote context fields. Capped at META_MAX each so a
+  // bot can't stuff the email body via these fields.
+  const fundingAmount = (data.fundingAmount || '').trim().slice(0, META_MAX);
+  const fundingTimeline = (data.fundingTimeline || '').trim().slice(0, META_MAX);
+  const eventDate = (data.eventDate || '').trim().slice(0, META_MAX);
+  const eventAudience = (data.eventAudience || '').trim().slice(0, META_MAX);
 
   if (honeypot) {
     // Bot filled the honeypot — silently discard but return success
@@ -77,13 +90,41 @@ function validate(data) {
 
   return {
     errors,
-    cleaned: { name, organisation, email, message },
+    cleaned: {
+      name,
+      organisation,
+      email,
+      message,
+      topic,
+      fundingAmount,
+      fundingTimeline,
+      eventDate,
+      eventAudience,
+    },
     isBot: false,
   };
 }
 
+const TOPIC_LABELS = {
+  general: 'Contact',
+  funding: 'Funding enquiry',
+  keynote: 'Keynote booking',
+};
+
 // ─── Email delivery (Resend REST API, no SDK) ─────────────
-async function sendEmail({ name, organisation, email, message }) {
+async function sendEmail(cleaned) {
+  const {
+    name,
+    organisation,
+    email,
+    message,
+    topic,
+    fundingAmount,
+    fundingTimeline,
+    eventDate,
+    eventAudience,
+  } = cleaned;
+
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_EMAIL_TO;
   const from = process.env.CONTACT_EMAIL_FROM;
@@ -91,6 +132,7 @@ async function sendEmail({ name, organisation, email, message }) {
   if (!apiKey || !to || !from) {
     // Dev/preview environment — log instead of send.
     console.info('[contact] Email env vars not set. Submission:', {
+      topic,
       name,
       organisation,
       email,
@@ -99,11 +141,27 @@ async function sendEmail({ name, organisation, email, message }) {
     return { delivered: false, reason: 'dev-mode' };
   }
 
-  const subject = `New enquiry from ${name}${organisation ? ` (${organisation})` : ''}`;
+  const topicLabel = TOPIC_LABELS[topic] || TOPIC_LABELS.general;
+  const subject = `[${topicLabel}] ${name}${organisation ? ` (${organisation})` : ''}`;
+
+  // Build topic-specific metadata lines. Omitted when empty so the email
+  // body doesn't fill up with placeholder "—" rows.
+  const metaLines = [];
+  if (topic === 'funding') {
+    if (fundingAmount) metaLines.push(`Amount bracket:  ${fundingAmount}`);
+    if (fundingTimeline) metaLines.push(`Timeline:        ${fundingTimeline}`);
+  }
+  if (topic === 'keynote') {
+    if (eventDate) metaLines.push(`Event date:      ${eventDate}`);
+    if (eventAudience) metaLines.push(`Audience:        ${eventAudience}`);
+  }
+
   const text = [
+    `Topic:        ${topicLabel}`,
     `From:         ${name}`,
     `Organisation: ${organisation || '—'}`,
     `Email:        ${email}`,
+    ...metaLines,
     '',
     '— Message —',
     message,
@@ -138,7 +196,7 @@ async function sendEmail({ name, organisation, email, message }) {
 export async function submitContactForm(_prevState, formData) {
   try {
     // Get IP — falls back to a constant in dev so rate limit still works.
-    // Awaited for forward-compat with Next.js 15+ (async headers()).
+    // The headers helper is async in Next.js 15+, hence the await.
     const hdrs = await headers();
     const ip =
       hdrs.get('x-forwarded-for')?.split(',')[0]?.trim() ||
@@ -160,6 +218,11 @@ export async function submitContactForm(_prevState, formData) {
       email: formData.get('email'),
       message: formData.get('message'),
       website: formData.get('website'), // honeypot
+      topic: formData.get('topic'),
+      fundingAmount: formData.get('fundingAmount'),
+      fundingTimeline: formData.get('fundingTimeline'),
+      eventDate: formData.get('eventDate'),
+      eventAudience: formData.get('eventAudience'),
     };
 
     const { errors, cleaned, isBot } = validate(data);

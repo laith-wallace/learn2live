@@ -1,0 +1,27 @@
+.header {
+  max-width: 720px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.headline {
+  color: var(--white);
+  margin: 16px 0 24px;
+}
+
+.intro {
+  max-width: 640px;
+}
+
+.videoWrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(32px, 4vw, 56px);
+}
