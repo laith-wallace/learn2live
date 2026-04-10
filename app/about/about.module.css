@@ -1,0 +1,162 @@
+.page { padding-top: 70px; }
+
+.block { border-top: 1px solid var(--border); }
+
+.hero {
+  padding-top: clamp(80px, 10vw, 140px);
+  padding-bottom: clamp(80px, 10vw, 140px);
+}
+
+.breadcrumb {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.breadcrumb a { color: var(--accent); }
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+
+.heroHeadline {
+  color: var(--white);
+  margin: 20px 0 32px;
+  max-width: 720px;
+}
+
+.heroHeadline em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.heroBody {
+  max-width: 720px;
+}
+
+.heroBody p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.heroBody p:last-child { margin-bottom: 0; }
+
+.heroBody em { color: var(--white); font-style: italic; }
+
+.heroBody a { color: var(--accent); }
+
+.signature {
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.signatureName {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  font-style: italic;
+}
+
+.signatureRole {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.portrait {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  max-width: 400px;
+  width: 100%;
+}
+
+.portraitCaption {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.heroActions {
+  margin-top: clamp(32px, 4vw, 48px);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ── Prose block (for deep-dive sections) ───────── */
+.prose {
+  max-width: 720px;
+}
+
+.prose p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.prose p:last-child { margin-bottom: 0; }
+
+.prose em { color: var(--white); font-style: italic; }
+
+.prose a { color: var(--accent); }
+
+/* ── Credentials grid ───────────────────────────── */
+.credsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.cred {
+  padding: 28px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.credLabel {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.credTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.credBody {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .heroGrid { grid-template-columns: 1fr; }
+  .portrait { max-width: none; }
+  .credsGrid { grid-template-columns: 1fr; }
+}

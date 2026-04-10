@@ -1,0 +1,74 @@
+.wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--surface);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.45);
+  transition: background var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .facade:hover .overlay { background: rgba(10, 10, 10, 0.25); }
+  .facade:hover .playBtn { transform: scale(1.08); }
+}
+
+.playBtn {
+  position: relative;
+  z-index: 1;
+  width: 72px;
+  height: 72px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.playBtn:active { transform: scale(0.95); }
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--white);
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
+  text-align: left;
+}
+
+.iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

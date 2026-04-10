@@ -63,32 +63,29 @@ export default function Hero() {
 
       <div className={`container ${styles.inner}`}>
         <div className={styles.content}>
+          {/* DRAFT — JW to approve */}
           <div className={`eyebrow ${styles.eyebrow}`}>
-            The Forgiveness Framework
+            Learn 2 Live Legacy
           </div>
 
           <h1 className={`display-xl ${styles.headline}`}>
-            A youth resilience programme<br />
-            built from <em>lived experience.</em>
+            This work was built from a decision<br />
+            most people <em>avoid.</em>
           </h1>
 
           <p className={`text-lg ${styles.sub}`}>
-            Learn 2 Live Legacy is a structured, evidence-based programme that uses
-            theatre and lived experience to help young people in South London understand
-            forgiveness — not as a moral directive, but as a practical human tool for
-            building resilience and moving forward.
+            After the loss of his son to serious youth violence, Jermaine Wong chose
+            not to reproduce harm — but to interrupt it. That decision is now a model:
+            a structured, repeatable framework that connects culture, youth voice and
+            civic dialogue.
           </p>
 
           <div className={styles.actions}>
-            <a href="#framework" className={`btn-primary ${styles.ctaPrimary}`}>
-              Explore the Framework
+            <a href="/fund" className={`btn-primary ${styles.ctaPrimary}`}>
+              Fund This Initiative
             </a>
-            <a
-              href="/forgiveness-framework-proposal.pdf"
-              download
-              className={`btn-ghost ${styles.ctaGhost}`}
-            >
-              Download the Proposal
+            <a href="#ourson" className={`btn-ghost ${styles.ctaGhost}`}>
+              Watch the Work
             </a>
           </div>
         </div>

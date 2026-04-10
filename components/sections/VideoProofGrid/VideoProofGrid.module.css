@@ -1,0 +1,30 @@
+.header {
+  max-width: 640px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.headline {
+  color: var(--white);
+  margin-top: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 960px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .item:nth-child(3) { grid-column: span 2; max-width: 60%; margin: 0 auto; }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+  .item:nth-child(3) { grid-column: auto; max-width: none; }
+}
