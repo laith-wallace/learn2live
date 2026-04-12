@@ -65,7 +65,7 @@ export default function Hero() {
         <div className={styles.content}>
           {/* DRAFT — JW to approve */}
           <div className={`eyebrow ${styles.eyebrow}`}>
-            welcome
+            Learn 2 Live Legacy
           </div>
 
           <h1 className={`display-xl ${styles.headline}`}>
