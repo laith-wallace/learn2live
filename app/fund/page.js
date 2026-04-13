@@ -179,6 +179,12 @@ export default function FundPage() {
                   The case for funding it now is not about whether it works. It is
                   about whether it reaches the next borough.
                 </p>
+                <p>
+                  In 2025, Jermaine Wong stated on BBC News: &lsquo;If nothing changes
+                  from the inside, then you&rsquo;re going to get the same outcomes —
+                  regardless of what measures you put in place.&rsquo; That is the gap
+                  this work is designed to close.
+                </p>
               </div>
             </div>
           </div>
@@ -221,6 +227,52 @@ export default function FundPage() {
                   <p className={styles.stepBody}>{body}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── What we are asking for ─────────────────────── */}
+        <section className={`section section--surface ${styles.block}`}>
+          <div className="container">
+            <SectionHeader
+              eyebrow="The ask"
+              headline="What we are asking for."
+            />
+            <div className={styles.fundingAskWrap}>
+              <div className={styles.prose}>
+                <p>
+                  The full programme cost to deliver the Forgiveness Framework pilot
+                  is £63,213. We are seeking the full programme budget from funding
+                  partners.
+                </p>
+                <p>
+                  The model is designed to generate ticket revenue of up to £54,883
+                  at sell-out capacity — but that income is contingent on the programme
+                  being fully funded and delivered first. It does not reduce the upfront
+                  funding requirement.
+                </p>
+                <p>
+                  Your investment of £63,213 unlocks a programme that generates its own
+                  income, builds its own evidence base, and is designed to replicate
+                  across boroughs.
+                </p>
+              </div>
+              <div className={styles.fundingCallout}>
+                <div className={styles.fundingCalloutItem}>
+                  <span className={styles.fundingCalloutFigure}>£63,213</span>
+                  <span className={styles.fundingCalloutLabel}>Total funding sought</span>
+                </div>
+                <div className={styles.fundingCalloutDivider} />
+                <div className={styles.fundingCalloutItem}>
+                  <span className={styles.fundingCalloutFigure}>~£8,300</span>
+                  <span className={styles.fundingCalloutLabel}>Net investment after projected ticket income</span>
+                </div>
+                <div className={styles.fundingCalloutDivider} />
+                <p className={styles.fundingCalloutNote}>
+                  This is a model built to sustain itself — but it needs to be fully
+                  funded to run.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -316,8 +368,86 @@ export default function FundPage() {
               headline="How the work actually lands."
               subhead="A funder's best evidence is the room itself. These are the responses we hear most often — from participants, audience members, and the people who bring us in."
             />
-            {/* DRAFT — JW to supply real attributed quotes. */}
-            <Testimonials />
+            <Testimonials
+              columns={2}
+              items={[
+                {
+                  quote: 'This changes families. This changes communities. This changes society.',
+                  attribution: 'Mark Prince',
+                  role: 'Founder, Kiyan Prince Foundation',
+                },
+                {
+                  quote: 'Awestruck with the power of the message. Huge credit to the knowledge, skill and professionalism of everyone involved.',
+                  attribution: 'Professional attendee',
+                  role: 'Post-event message',
+                },
+                {
+                  quote: 'So powerful, honest and moving.',
+                  attribution: '★★★★★',
+                  role: 'Audience member, Our Son',
+                },
+                {
+                  quote: 'I shed tears. I laughed. I reflected. It was raw, authentic and faithful.',
+                  attribution: 'Audience member',
+                  role: 'Our Son',
+                },
+              ]}
+            />
+          </div>
+        </section>
+
+        {/* ── Watch the evidence ─────────────────────────── */}
+        <section className={`section section--surface ${styles.block}`}>
+          <div className="container">
+            <SectionHeader
+              eyebrow="Watch the evidence"
+              headline="See the work in action."
+            />
+            <div className={styles.videoGrid}>
+              {[
+                {
+                  videoId: 'D7Lejud5mbU',
+                  label: "The Director's Story",
+                  caption: 'Why Jermaine staged Our Son — and what it cost him.',
+                },
+                {
+                  videoId: 'T8NhYIEi_a0',
+                  label: 'Audience Reactions — Our Son',
+                  caption: 'Mark Prince and audiences respond immediately after the event.',
+                },
+                {
+                  videoId: 'JZVtRYhq6I0',
+                  label: 'Passion Pathway — The Featurette',
+                  caption: 'Young people speak about the impact of the filmmaking programme.',
+                },
+              ].map(({ videoId, label, caption }) => (
+                <div key={videoId} className={styles.videoThumb}>
+                  <a
+                    href={`https://youtu.be/${videoId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.videoThumbLink}
+                    aria-label={label}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+                      alt={label}
+                      className={styles.videoThumbImg}
+                      width={480}
+                      height={270}
+                    />
+                    <div className={styles.videoThumbPlay} aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </a>
+                  <p className={styles.videoThumbLabel}>{label}</p>
+                  <p className={`text-sm text-muted ${styles.videoThumbCaption}`}>{caption}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

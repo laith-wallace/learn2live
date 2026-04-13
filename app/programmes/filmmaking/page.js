@@ -95,14 +95,24 @@ export default function FilmmakingPage() {
         <section className={`section section--dark ${styles.block}`}>
           <div className="container">
             <SectionHeader
-              eyebrow="Additional context"
-              headline="A second look at the work."
-              subhead="Reflections from a prior cohort."
+              eyebrow="See the programme in action"
+              headline="Passion Pathway — The Featurette."
+              subhead="The Passion Pathway: Filmmaking Programme brings together a cohort of young people for an intensive creative experience — combining mentoring, self-development workshops, day trips, and the craft of filmmaking — culminating in the premiere of their own short film."
             />
+            <div className={styles.body}>
+              <p>
+                One participant described waking up every morning motivated and
+                looking forward to the day. Another reflected that they had
+                learned how to talk to people — something they said they had
+                always struggled with. These are not incidental outcomes. They
+                are the markers of genuine transformation.
+              </p>
+            </div>
             <div className={styles.heroVideo}>
               <YouTubeFacade
-                videoId="_ojjloQHpv8"
-                title="Filmmaking — participant reflections"
+                videoId="JZVtRYhq6I0"
+                title="Passion Pathway — The Featurette"
+                caption="Young people reflect on their experience of the Learn 2 Live Legacy Filmmaking Programme."
               />
             </div>
           </div>
