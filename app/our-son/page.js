@@ -3,24 +3,48 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import SectionHeader from '../../components/shared/SectionHeader/SectionHeader';
 import YouTubeFacade from '../../components/shared/YouTubeFacade/YouTubeFacade';
+import Testimonials from '../../components/shared/Testimonials/Testimonials';
 import TripleCTA from '../../components/shared/TripleCTA/TripleCTA';
 import styles from './our-son.module.css';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://learn2livelegacy.org';
 
 export const metadata = {
-  title: 'Our Son — Award-Winning Theatrical Production by Jermaine Wong',
+  title: 'Our Son — Theatrical Production by Jermaine Wong',
   description:
-    'Our Son is a one-hour, award-winning theatrical production by Jermaine Wong. It anchors the Forgiveness Framework by placing audiences inside the consequence of unforgiveness.',
+    'Our Son is a one-act drama by Jermaine Wong exploring fatherhood, identity, pride and forgiveness. It anchors the Forgiveness Framework by placing audiences inside the consequence of unforgiveness.',
   alternates: { canonical: '/our-son' },
   openGraph: {
-    title: 'Our Son — Award-Winning Theatrical Production by Jermaine Wong',
+    title: 'Our Son — Theatrical Production by Jermaine Wong',
     description:
-      'A one-hour, award-winning theatrical production that makes the case for forgiveness by showing what happens when it is absent.',
+      'A one-act drama that makes the case for forgiveness by showing what happens when it is absent.',
     url: `${BASE_URL}/our-son`,
     type: 'article',
   },
 };
+
+const AUDIENCE_QUOTES = [
+  {
+    quote: 'So powerful, honest and moving.',
+    attribution: '★★★★★',
+    role: 'Audience member, Our Son',
+  },
+  {
+    quote: 'I shed tears. I laughed. I reflected. It was raw, authentic and faithful.',
+    attribution: 'Audience member',
+    role: 'Our Son',
+  },
+  {
+    quote: 'The play is off the scale. It needs to be at the Young Vic.',
+    attribution: 'Theatre professional',
+    role: 'Post-performance',
+  },
+  {
+    quote: 'You are an exceptionally gifted young man and I can\'t wait to see your next chapter.',
+    attribution: '★★★★★',
+    role: 'Post-performance message',
+  },
+];
 
 export default function OurSonPage() {
   const pageJsonLd = {
@@ -28,7 +52,7 @@ export default function OurSonPage() {
     '@type': 'TheaterEvent',
     name: 'Our Son',
     description:
-      'An award-winning, one-hour theatrical production that anchors the Forgiveness Framework by placing audiences inside the consequence of unforgiveness.',
+      'A one-act drama exploring fatherhood, identity, pride and forgiveness. It anchors the Forgiveness Framework by placing audiences inside the consequence of unforgiveness.',
     performer: { '@type': 'Person', name: 'Jermaine Wong' },
     organizer: { '@type': 'Organization', name: 'Learn 2 Live Legacy' },
     location: {
@@ -76,18 +100,53 @@ export default function OurSonPage() {
               </h1>
               <p className={`text-lg ${styles.heroSub}`}>
                 Before anyone can engage with the framework, they have to feel
-                it. <em>Our Son</em> is a one-hour, award-winning theatrical
-                production that puts the audience inside the consequence of
-                unforgiveness. It doesn&apos;t argue for forgiveness. It makes
-                the case by showing what happens when it&apos;s absent.
+                it. <em>Our Son: The Battlefield of Forgiveness</em> is a one-act
+                drama exploring fatherhood, identity, pride and forgiveness. It
+                does not argue for forgiveness. It makes the case by showing what
+                happens when it is absent.
               </p>
             </div>
 
             <div className={styles.heroVideo}>
               <YouTubeFacade
                 videoId="moaDBwlF1r0"
-                title="Our Son — Award-Winning Production"
+                title="Our Son — Production"
               />
+            </div>
+          </div>
+        </section>
+
+        {/* ── A play born before the tragedy ──────── */}
+        <section className={`section section--dark ${styles.block}`}>
+          <div className="container">
+            <SectionHeader
+              eyebrow="The story behind the play"
+              headline="A play born before the tragedy."
+            />
+            <div className={styles.prose}>
+              <p>
+                Our Son was completed in September 2023 — two weeks before the
+                murder of Jermaine&apos;s son, Keelan. The play was already written.
+                Already about a father and son. Already about the long road back
+                to reconciliation.
+              </p>
+              <p>
+                The decision to stage it afterwards — despite everything — speaks
+                to the same conviction the Framework is built on: that the work of
+                healing must continue, and that art has a specific role in making
+                that possible.
+              </p>
+            </div>
+            <div className={styles.videoSection}>
+              <p className={`text-xs ${styles.videoLabel}`}>
+                Watch: Jermaine explains the story behind Our Son
+              </p>
+              <div className={styles.videoWrap}>
+                <YouTubeFacade
+                  videoId="D7Lejud5mbU"
+                  title="Jermaine explains the story behind Our Son"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -98,7 +157,7 @@ export default function OurSonPage() {
             <SectionHeader
               eyebrow="About the production"
               headline="Written and directed by Jermaine Wong."
-              subhead="Our Son is the cultural anchor of the Forgiveness Framework. It was born from Jermaine's own reckoning with loss, and has been delivered to audiences across South London schools, colleges, and civic venues for over fifteen years."
+              subhead="Our Son is the cultural anchor of the Forgiveness Framework. It was born from Jermaine's own reckoning with loss, and has been delivered to audiences across South London schools, colleges, and civic venues."
             />
             <div className={styles.factsGrid}>
               <div className={styles.fact}>
@@ -112,11 +171,12 @@ export default function OurSonPage() {
               </div>
               <div className={styles.fact}>
                 <div className={`text-xs ${styles.factLabel}`}>Partnership</div>
-                <h3 className={styles.factTitle}>Brixton House</h3>
+                <h3 className={styles.factTitle}>Brixton House &amp; Kiyan Prince Foundation</h3>
                 <p className={styles.factBody}>
-                  Delivered in partnership with Brixton House, the borough
-                  landmark that provides the platform and legitimacy for the
-                  production to reach audiences beyond school settings.
+                  Delivered in partnership with Brixton House and the Kiyan
+                  Prince Foundation. Saint Gabriel&apos;s College, Camberwell is a
+                  confirmed educational partner, hosting the Learn 2 Live Legacy
+                  Spoken Word Programme on site.
                 </p>
               </div>
               <div className={styles.fact}>
@@ -133,7 +193,42 @@ export default function OurSonPage() {
           </div>
         </section>
 
-        {/* ── Audience response video ─────────────── */}
+        {/* ── Promotional film ────────────────────── */}
+        <section className={`section section--dark ${styles.block}`}>
+          <div className="container">
+            <SectionHeader
+              eyebrow="Watch: Our Son — Promotional Film"
+              headline="See the work."
+            />
+            <div className={styles.testimonialWrap}>
+              <YouTubeFacade
+                videoId="moaDBwlF1r0"
+                title="Our Son — Promotional Film"
+                caption="Spoken word poetry from the production."
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── Actor testimony ─────────────────────── */}
+        <section className={`section section--surface ${styles.block}`}>
+          <div className="container">
+            <SectionHeader
+              eyebrow="Actor testimony"
+              headline="From inside the production."
+              subhead="DeManni Marshall, who plays Kamari in Our Son, on why young people need to see this play."
+            />
+            <div className={styles.testimonialWrap}>
+              <YouTubeFacade
+                videoId="KSyVRZz_0r0"
+                title="DeManni Marshall — Actor Testimony"
+                caption="DeManni Marshall, who plays Kamari in Our Son, on why young people need to see this play."
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── Audience quotes ─────────────────────── */}
         <section className={`section section--dark ${styles.block}`}>
           <div className="container">
             <SectionHeader
@@ -141,17 +236,32 @@ export default function OurSonPage() {
               headline="How it lands."
               subhead="The case for Our Son is always made most clearly by the people who have just watched it."
             />
+            <Testimonials items={AUDIENCE_QUOTES} columns={2} />
+            <p className={`text-sm text-muted ${styles.responseNote}`}>
+              Responses received directly following performances of Our Son across South London.
+            </p>
+          </div>
+        </section>
+
+        {/* ── Audience feedback video ─────────────── */}
+        <section className={`section section--surface ${styles.block}`}>
+          <div className="container">
+            <SectionHeader
+              eyebrow="Watch: Audience Reactions — Our Son Live Event"
+              headline="The room responds."
+            />
             <div className={styles.testimonialWrap}>
               <YouTubeFacade
-                videoId="KSyVRZz_0r0"
-                title="Our Son — Audience Testimonials"
+                videoId="T8NhYIEi_a0"
+                title="Audience Reactions — Our Son"
+                caption="Mark Prince (Kiyan Prince Foundation) and audience members respond immediately after an Our Son event."
               />
             </div>
           </div>
         </section>
 
         {/* ── Pull quote ──────────────────────────── */}
-        <section className={`section section--surface ${styles.block}`}>
+        <section className={`section section--dark ${styles.block}`}>
           <div className="container">
             <figure className={styles.quote}>
               <blockquote className={`display-md ${styles.quoteText}`}>

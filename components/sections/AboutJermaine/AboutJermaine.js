@@ -59,7 +59,7 @@ export default function AboutJermaine() {
 
             <div className={`fade-up ${styles.signature}`}>
               <span className={styles.name}>Jermaine Wong</span>
-              <span className="text-sm text-muted">Playwright · Director · Founder, Learn 2 Live Legacy</span>
+              <span className="text-sm text-muted">Playwright · Filmmaker · Spoken Word Artist · Educator · Founder, Learn 2 Live Legacy</span>
             </div>
           </div>
 

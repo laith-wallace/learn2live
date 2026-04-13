@@ -36,16 +36,18 @@ export default function FeatureVideo() {
       ref={ref}
     >
       <div className="container">
-        {/* DRAFT — JW to approve */}
         <p className={`text-lg text-muted fade-up ${styles.caption}`}>
-          Before we explain anything — experience the work.
+          The story behind the work
         </p>
         <div className={`${styles.videoWrap} reveal`}>
           <YouTubeFacade
-            videoId="7i_TCIACLh0"
-            title="Learn 2 Live Legacy — Feature Film"
+            videoId="D7Lejud5mbU"
+            title="The story behind Our Son — Jermaine Wong"
           />
         </div>
+        <p className={`text-sm text-muted fade-up ${styles.subCaption}`}>
+          The play was finished two weeks before the tragedy. Hear why Jermaine staged it anyway.
+        </p>
       </div>
     </section>
   );

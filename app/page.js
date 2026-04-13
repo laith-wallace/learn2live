@@ -5,6 +5,7 @@ import WhyThisExists from '../components/sections/WhyThisExists/WhyThisExists';
 import TheGap from '../components/sections/TheGap/TheGap';
 import TheModel from '../components/sections/TheModel/TheModel';
 import VideoProofGrid from '../components/sections/VideoProofGrid/VideoProofGrid';
+import MediaRecognition from '../components/sections/MediaRecognition/MediaRecognition';
 import Pathways from '../components/sections/Pathways/Pathways';
 import OurSonFeature from '../components/sections/OurSonFeature/OurSonFeature';
 import AboutJermaine from '../components/sections/AboutJermaine/AboutJermaine';
@@ -32,6 +33,7 @@ export default function Home() {
         <TheGap />
         <TheModel />
         <VideoProofGrid />
+        <MediaRecognition />
         <Pathways />
         <OurSonFeature />
         <AboutJermaine />

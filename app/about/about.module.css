@@ -97,6 +97,24 @@
   border-radius: 2px;
 }
 
+.videoBlock {
+  margin-top: clamp(32px, 4vw, 48px);
+  max-width: 720px;
+}
+
+.videoLabel {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.videoCaption {
+  margin-top: 12px;
+  font-style: italic;
+}
+
 .heroActions {
   margin-top: clamp(32px, 4vw, 48px);
   display: flex;
@@ -153,6 +171,13 @@
   color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.65;
+}
+
+.credLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(24px, 3vw, 40px);
 }
 
 @media (max-width: 900px) {

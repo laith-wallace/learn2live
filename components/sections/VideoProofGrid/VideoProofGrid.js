@@ -4,22 +4,21 @@ import { useEffect, useRef } from 'react';
 import YouTubeFacade from '../../shared/YouTubeFacade/YouTubeFacade';
 import styles from './VideoProofGrid.module.css';
 
-// DRAFT — JW to approve captions. Pulled from the v2 doc's overlay options.
 const VIDEOS = [
   {
     videoId: 'T8NhYIEi_a0',
     title: 'Audience response — Our Son',
-    caption: '"This shifted something in me."',
+    caption: '"So powerful, honest and moving." — ★★★★★ Audience member, Our Son',
   },
   {
     videoId: 'KSyVRZz_0r0',
     title: 'Audience testimonials — Our Son',
-    caption: '"I saw myself in it."',
+    caption: '"I shed tears. I laughed. I reflected. It was raw, authentic and faithful." — Audience member, Our Son',
   },
   {
     videoId: 'D7Lejud5mbU',
     title: 'Spoken Word — participant voices',
-    caption: '"It made me think differently."',
+    caption: '"The play is off the scale. It needs to be at the Young Vic." — Theatre professional',
   },
 ];
 
@@ -74,6 +73,15 @@ export default function VideoProofGrid() {
             </div>
           ))}
         </div>
+
+        <figure className={`fade-up ${styles.markPrince}`}>
+          <blockquote className={styles.markPrinceQuote}>
+            &ldquo;This changes families. This changes communities. This changes society.&rdquo;
+          </blockquote>
+          <figcaption className={`text-sm ${styles.markPrinceAttrib}`}>
+            — Mark Prince, Kiyan Prince Foundation
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

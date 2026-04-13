@@ -163,6 +163,42 @@ export default function TheFrameworkPage() {
           </div>
         </section>
 
+        {/* ── Evidence panel ──────────────────────── */}
+        <section className={`section section--dark ${styles.block}`}>
+          <div className="container">
+            <SectionHeader
+              eyebrow="What the evidence shows"
+              headline="Numbers from the room."
+            />
+            <div className={styles.evidence}>
+              <div className={styles.evidenceItem}>
+                <p className={styles.evidenceStat}>120+</p>
+                <p className={styles.evidenceBody}>
+                  Audience members per event — with over 70% remaining for
+                  facilitated post-show dialogue.
+                </p>
+              </div>
+              <div className={styles.evidenceItem}>
+                <p className={styles.evidenceStat}>Measured</p>
+                <p className={styles.evidenceBody}>
+                  Participants report shifts in confidence, communication, and
+                  daily motivation — evidenced through pre and post-programme
+                  surveys.
+                </p>
+              </div>
+              <div className={styles.evidenceItem}>
+                <p className={styles.evidenceStat}>&ldquo;</p>
+                <p className={styles.evidenceBody}>
+                  This changes families. This changes communities. This changes
+                  society.&rdquo;
+                  <br />
+                  <span className={styles.evidenceAttrib}>— Mark Prince, Kiyan Prince Foundation</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── Inner journey (psychological) ───────── */}
         <section className={`section section--dark ${styles.block}`}>
           <div className="container">
@@ -217,6 +253,11 @@ export default function TheFrameworkPage() {
                 as <em>a decision about who holds the weight going forward</em> —
                 and gives young people the tools to make that decision on their
                 own terms.
+              </p>
+              <p>
+                The framework has been recognised by BBC News and The Voice as a
+                serious, credible contribution to the public response to knife
+                crime and serious youth violence.
               </p>
             </div>
           </div>

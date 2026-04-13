@@ -3,15 +3,16 @@ import Image from 'next/image';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import SectionHeader from '../../components/shared/SectionHeader/SectionHeader';
+import YouTubeFacade from '../../components/shared/YouTubeFacade/YouTubeFacade';
 import TripleCTA from '../../components/shared/TripleCTA/TripleCTA';
 import styles from './about.module.css';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://learn2livelegacy.org';
 
 export const metadata = {
-  title: 'About Jermaine Wong — Playwright, Director, Founder',
+  title: 'About Jermaine Wong — Playwright, Filmmaker, Spoken Word Artist, Educator',
   description:
-    'Jermaine Wong is a theatre-maker, educator and the architect of the Forgiveness Framework. 15+ years delivering theatre-based youth work across South London.',
+    'Jermaine Wong is a playwright, filmmaker, spoken word artist and educator — and the founder of Learn 2 Live Legacy. Over 15 years delivering theatre-based youth work across South London.',
   alternates: { canonical: '/about' },
   openGraph: {
     title: 'About Jermaine Wong — Learn 2 Live Legacy',
@@ -46,42 +47,51 @@ export default function AboutPage() {
                   <em>Forgiveness Framework.</em>
                 </h1>
 
-                {/* DRAFT — JW to approve */}
                 <div className={styles.heroBody}>
                   <p>
-                    Jermaine Wong is a theatre-maker, educator and the architect
-                    of the Forgiveness Framework. His work sits at the
-                    intersection of culture, youth engagement and civic response.
+                    Jermaine Wong is a playwright, filmmaker, spoken word artist, drama educator
+                    and the founder of Learn 2 Live Legacy — a cultural and social impact
+                    organisation that uses theatre, film and structured dialogue to help young
+                    people, families, and communities move from cycles of violence and pain towards
+                    forgiveness, healing, and transformation.
                   </p>
                   <p>
-                    But this work is not theoretical. It is built from lived
-                    experience. Following the loss of his son to serious youth
-                    violence, Jermaine made a decision that now underpins
-                    everything he builds: <em>not to reproduce harm — but to
-                    interrupt it.</em>
+                    His work sits at the intersection of artistic excellence, youth development,
+                    faith-rooted vision, and civic imagination. It is not theoretical. It is built
+                    from lived experience.
                   </p>
                   <p>
-                    That decision has been translated into a structured,
-                    scalable model now being developed for borough-level
-                    implementation. The production that anchors it —{' '}
-                    <Link href="/our-son">Our Son</Link> — has been delivered to
-                    audiences across South London for over fifteen years. The
-                    model behind it — the{' '}
-                    <Link href="/the-framework">Forgiveness Framework</Link> —
-                    is what Jermaine now works to scale.
+                    Following the murder of his son Keelan in Brixton in 2023, Jermaine made a
+                    decision that now underpins everything he builds: not to reproduce harm — but
+                    to interrupt it. That decision is the Forgiveness Framework.
                   </p>
                   <p>
-                    If you are a funder, a commissioner, an educator, or a youth
-                    worker who understands that this kind of change does not
-                    happen from a curriculum document, he would be glad to hear
-                    from you.
+                    In 2025 he was interviewed on BBC News on knife crime and what genuine change
+                    requires. That same year, The Voice — the UK&apos;s leading Black British
+                    newspaper — published a full feature interview on his work. His message in
+                    both: if nothing changes internally, nothing changes externally.
+                  </p>
+                </div>
+
+                {/* BBC News video embed */}
+                <div className={styles.videoBlock}>
+                  <p className={`text-xs ${styles.videoLabel}`}>
+                    Watch: Jermaine Wong on BBC News
+                  </p>
+                  <YouTubeFacade
+                    videoId="_qtjZkFMejw"
+                    title="Jermaine Wong on BBC News"
+                  />
+                  <p className={`text-sm text-muted ${styles.videoCaption}`}>
+                    Speaking on knife crime, internal transformation, and what genuinely needs
+                    to change.
                   </p>
                 </div>
 
                 <div className={styles.signature}>
                   <span className={styles.signatureName}>Jermaine Wong</span>
                   <span className={styles.signatureRole}>
-                    Playwright · Director · Founder, Learn 2 Live Legacy
+                    Playwright · Filmmaker · Spoken Word Artist · Educator · Founder, Learn 2 Live Legacy
                   </span>
                 </div>
 
@@ -104,7 +114,7 @@ export default function AboutPage() {
                   style={{ objectFit: 'cover' }}
                 />
                 <div className={styles.portraitCaption}>
-                  <span className="text-xs text-muted">As featured in The Voice</span>
+                  <span className="text-xs text-muted">As featured in The Voice, August 2025</span>
                 </div>
               </aside>
             </div>
@@ -119,7 +129,6 @@ export default function AboutPage() {
               headline="What Jermaine builds, and why."
             />
             <div className={styles.prose}>
-              {/* DRAFT — JW to approve */}
               <p>
                 The Forgiveness Framework was not designed in a classroom. It
                 was assembled, cohort by cohort, from the rooms Jermaine has
@@ -157,33 +166,51 @@ export default function AboutPage() {
               subhead="Jermaine's work has been delivered in partnership with schools, civic venues, and youth organisations across South London — and covered by national press."
             />
             <div className={styles.credsGrid}>
-              {/* DRAFT — JW to approve / supply specifics */}
               <div className={styles.cred}>
                 <div className={`text-xs ${styles.credLabel}`}>Delivery</div>
-                <h3 className={styles.credTitle}>15+ years</h3>
+                <h3 className={styles.credTitle}>Nearly 30 years</h3>
                 <p className={styles.credBody}>
-                  Continuous theatre-based youth work delivered across South
-                  London schools, colleges, and civic venues since 2009.
+                  Nearly 30 years in inner-city London secondary education,
+                  combined with over 15 years of theatre-based youth engagement
+                  delivered across South London schools, colleges, and civic venues.
                 </p>
               </div>
               <div className={styles.cred}>
                 <div className={`text-xs ${styles.credLabel}`}>Partnerships</div>
-                <h3 className={styles.credTitle}>Kiyan Prince Foundation · Brixton House</h3>
+                <h3 className={styles.credTitle}>Kiyan Prince Foundation · Brixton House · Saint Gabriel&apos;s College</h3>
                 <p className={styles.credBody}>
-                  Ongoing programme partnerships with the Kiyan Prince
-                  Foundation and Brixton House, the borough landmark that hosts
-                  Our Son and civic showcase events.
+                  Kiyan Prince Foundation (Official Collaborating Partner) · Brixton House ·
+                  Saint Gabriel&apos;s College (Confirmed Educational Partner) ·
+                  Final Call Productions (Creative Production Partner).
                 </p>
               </div>
               <div className={styles.cred}>
                 <div className={`text-xs ${styles.credLabel}`}>Press</div>
-                <h3 className={styles.credTitle}>Featured in The Voice</h3>
+                <h3 className={styles.credTitle}>BBC News (2025) · The Voice (August 2025)</h3>
                 <p className={styles.credBody}>
-                  National Black British press coverage of the production and
-                  the broader framework — available in the press kit on
-                  request.
+                  BBC News interview on knife crime and transformation, 2025.
+                  The Voice — full editorial feature interview on Our Son and the
+                  Forgiveness Framework, August 2025.
                 </p>
               </div>
+            </div>
+            <div className={styles.credLinks}>
+              <a
+                href="https://youtu.be/_qtjZkFMejw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+              >
+                Watch BBC Interview →
+              </a>
+              <a
+                href="https://www.voice-online.co.uk/news/uk-news/2025/08/06/love/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+              >
+                Read The Voice Feature →
+              </a>
             </div>
           </div>
         </section>

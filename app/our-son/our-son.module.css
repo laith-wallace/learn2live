@@ -85,6 +85,45 @@
   .factsGrid { grid-template-columns: 1fr; }
 }
 
+/* ── Prose (story section) ──────────────────────── */
+.prose {
+  max-width: 720px;
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+
+.prose p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.prose p:last-child { margin-bottom: 0; }
+
+.videoSection {
+  max-width: 920px;
+}
+
+.videoLabel {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.videoWrap {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Audience response note ─────────────────────── */
+.responseNote {
+  margin-top: clamp(24px, 3vw, 40px);
+  font-style: italic;
+}
+
 /* ── Pull quote ─────────────────────────────────── */
 .quote {
   border-left: 2px solid var(--accent);
